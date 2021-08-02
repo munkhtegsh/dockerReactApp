@@ -6,4 +6,4 @@ before_install:
   - docker build -t munkhtegsh/dockerreactapp -f Dockerfile.dev .
 
 script:
-  - docker run munkhtegsh/dockerReactApp npm run test -- --coverage
+  - docker run munkhtegsh/dockerreactapp npm run test -- --coverage
