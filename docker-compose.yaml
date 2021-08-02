@@ -1,0 +1,19 @@
+version: '3'
+services:
+  web:
+    build:
+      context: . #path to the dockerfile
+      dockerfile: Dockerfile.dev #which dockerfile to use
+    ports:
+      - "3000:3000"
+    volumes:
+      - /app/node_modules
+      - .:/app # app folder outside container to app folder inside container
+  tests: #almost copy pasted everyting above besides ports
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - .:/app
+    command: ["npm", "run", "test"]
